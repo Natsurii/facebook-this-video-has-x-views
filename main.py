@@ -24,6 +24,7 @@ SOFTWARE.
 import os
 import time
 import random
+import decimal
 import facebook
 import schedule
 from io import BytesIO
@@ -57,9 +58,9 @@ def ImgFormatter(file, title, views, numlikes, numdislikes):
 		roboto_likes = ImageFont.truetype('Roboto-Regular.ttf', 11)
 
 		canvas.text((15, height - 90),title,(0, 0, 0),font=roboto_title)
-		canvas.text((15, height - 40),f'{int(views):,g} views',(144, 144, 144),font=roboto_subtitle)
-		canvas.text((400, height - 32),f'{int(numlikes):,g}',(144, 144, 144),font=roboto_likes)
-		canvas.text((505, height - 32),f'{int(numdislikes):,g}',(144, 144, 144),font=roboto_likes)
+		canvas.text((15, height - 40),f'{decimal.Decimal(int(views)):,g} views',(144, 144, 144),font=roboto_subtitle)
+		canvas.text((400, height - 32),f'{decimal.Decimal(int(numlikes)):,g}',(144, 144, 144),font=roboto_likes)
+		canvas.text((505, height - 32),f'{decimal.Decimal(int(numdislikes)):,g}',(144, 144, 144),font=roboto_likes)
 
 		with Image.open(file) as frame:
 			basewidth = 801
