@@ -94,7 +94,8 @@ def main():
 	likes = metadata['video_like_count']
 	dislikes = metadata['video_dislike_count']
 	img = ImgFormatter(file=file,title=title, views=views,numlikes=likes,numdislikes=dislikes)
-	facebook_img(fb_token=FACEBOOK_API_KEY, image=img, caption=f'The video has {str(views)} views.', comment=metadata['video_description'])
+	comment_post = 'Running on Youtube Data API v3.\nDisclaimer: This bot is under supervision of The Bot Appreciation Society. Tom Scott and the producers of the youtube video are not affliated with this bot.'
+	facebook_img(fb_token=FACEBOOK_API_KEY, image=img, caption=f'The video has {str(views)} views.', comment=comment_post)
 
 #Post the output on cron
 main()
