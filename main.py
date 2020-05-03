@@ -98,8 +98,7 @@ def main():
 	facebook_img(fb_token=FACEBOOK_API_KEY, image=img, caption=f'The video has {str(views)} views.', comment=comment_post)
 
 #Post the output on cron
-main()
-schedule.every().day.at("12:05").do(main)
+schedule.every().hour.do(main)
 
 while True:
     schedule.run_pending()
